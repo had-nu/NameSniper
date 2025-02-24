@@ -27,14 +27,29 @@ Feedback and contributions are welcome to help evolve this tool!
 
 - **Timeout Handling:** Configurable HTTP timeout to prevent hangs during API requests.
 
+## Installation
+
+1. Install Go: `sudo apt install golang`
+2. Install godotenv: `go get github.com/joho/godotenv`
+3. Clone the repo: `git clone https://github.com/had-nu/namesniper.git`
+4. Set environment variables in `.env` or via `export`
+5. Run: `go run main.go "FirstName LastName"`
+
 ## Usage
 ```bash
 export GOOGLE_API_KEY="your_api_key_here"
 go run main.go "FirstName LastName"
 ```
 
+## Planned Enhancements
+
+- Integration with additional APIs (e.g., Twitter)
+- Support for input files (e.g., CSV with names, emails, phones)
+- Advanced parsing for emails, social media handles, and other identifiers
+
+Contributions welcome! :)
+
 ---
 
 ### Licença Apache 2.0
 
-Como você escolheu a licença Apache 2.0, aqui está o conteúdo para o arquivo `LICENSE` (crie no diretório `namesnipe/`):
