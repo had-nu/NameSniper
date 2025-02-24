@@ -42,8 +42,8 @@ func main() {
 	// Exibe o título estilizado
     banner := figure.NewFigure("NameSniper", "slant", true)
     banner.Print()
-    fmt.Println("\nVersão 1.0 - Desenvolvido por hadnu\n")
-    
+    fmt.Println("\nVersion 1.0 - Powered by hadnu\n")
+
     // Carrega variáveis de ambiente do arquivo .env
     if err := godotenv.Load(); err != nil {
         fmt.Println("Erro ao carregar .env:", err)
