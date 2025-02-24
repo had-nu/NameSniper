@@ -10,6 +10,7 @@ import (
     "time"
 
     "github.com/joho/godotenv"
+    "github.com/common-nighthawk/go-figure"
 )
 
 // Configurações globais
@@ -38,7 +39,12 @@ type Contador struct {
 }
 
 func main() {
-	// Carrega variáveis de ambiente do arquivo .env
+	// Exibe o título estilizado
+    banner := figure.NewFigure("NameSniper", "slant", true)
+    banner.Print()
+    fmt.Println("\nVersão 1.0 - Desenvolvido por hadnu\n")
+    
+    // Carrega variáveis de ambiente do arquivo .env
     if err := godotenv.Load(); err != nil {
         fmt.Println("Erro ao carregar .env:", err)
         os.Exit(1)
