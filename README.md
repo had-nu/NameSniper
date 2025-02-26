@@ -5,7 +5,15 @@
 
 ![](img/banner_ns.png)
 
-**NameSniper** is a lightweight, command-line OSINT (Open-Source Intelligence) tool written in Go, designed for the reconnaissance phase of ethical hacking and security research.
+**NameSniper** is a lightweight, command-line OSINT (Open-Source Intelligence) tool written in Go, designed for the reconnaissance phase of ethical hacking and security research. This is a tool that uses the Google Search API to look up information about people's names.
+
+**Ethical Hacking Disclaimer**
+
+NameSniper is built for educational, ethical, and legal use only. Ethical hacking requires explicit permission from the system or data owner—full stop. Unauthorised use to access, collect, or manipulate data without consent is illegal and carries serious legal, financial, and ethical consequences.
+
+This MVP stems from my cybersecurity journey, aiming to support the OSINT community and inspire learners while promoting reconnaissance best practices. It’s open for collaboration, but use it responsibly in authorised settings only. My intent is to empower security pros and students, not enable misuse.
+
+---
 
 ## MVP Limitations
 ⚠️ **Note**: This is an early MVP (Minimum Viable Product) version of NameSnipe. As such, it has some limitations:
@@ -53,5 +61,5 @@ Contributions welcome! :)
 
 ---
 
-### Licença Apache 2.0
+##### Licença Apache 2.0
 
