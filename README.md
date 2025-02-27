@@ -50,7 +50,6 @@ NameSniper/
 ├── README.md               # Project documentation and usage instructions
 └── .gitignore              # Git ignore patterns (e.g., .env, bin/)
 ```
----
 
 ---
 ### Key Features
