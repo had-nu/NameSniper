@@ -3,7 +3,6 @@ package counter
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"os"
 	"time"
 
