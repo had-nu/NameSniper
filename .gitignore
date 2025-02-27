@@ -26,6 +26,6 @@ go.work.sum
 .env
 
 # Sensitive files
-consultas.json
+querylog.json
 config.json
 go.sum

@@ -13,7 +13,7 @@ var (
 	GoogleCX     string
 	GoogleURL    string
 	DailyLimit   = 100             // Google API free tier limit
-	CounterFile  = "consultas.json" // File to track queries
+	CounterFile  = "querylog.json" // File to track queries
 	APITimeout   = 15 * time.Second // API request timeout
 )
 
