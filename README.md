@@ -75,8 +75,8 @@ NameSniper/
 ### Setup
 ```bash
 export	GOOGLE_API_KEY=your_key
-  		GOOGLE_CX=your_cx
-  		GOOGLE_URL=https://www.googleapis.com/customsearch/v1
+  	GOOGLE_CX=your_cx
+  	GOOGLE_URL=https://www.googleapis.com/customsearch/v1
 ```
 
 ### Build and Run
