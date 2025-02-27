@@ -43,7 +43,7 @@ NameSniper/
 │       ├── counter.go      # Manages daily query limits
 │       └── persist.go      # Persists query counter to/from consultas.json
 ├── .env                    # Environment configuration file (not tracked)
-├── consultas.json          # Query history file (not tracked)
+├── querylog.json           # Query history file (not tracked)
 ├── go.mod                  # Go module definition
 ├── go.sum                  # Dependency checksums
 ├── LICENSE                 # Project license
