@@ -3,7 +3,8 @@ package counter
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
+	"os"
 	"time"
 
 	"github.com/had-nu/NameSniper/internal/config"
@@ -17,7 +18,7 @@ type Counter struct {
 
 // LoadCounter retrieves the counter from file or creates a new one
 func LoadCounter() Counter {
-	data, err := ioutil.ReadFile(config.CounterFile)
+	data, err := os.ReadFile(config.CounterFile)
 	if err != nil {
 		return Counter{Date: time.Now().UTC().Format("2006-01-02"), Count: 0}
 	}
@@ -36,7 +37,7 @@ func SaveCounter(counter Counter) {
 		fmt.Println("Error saving counter:", err)
 		return
 	}
-	if err := ioutil.WriteFile(config.CounterFile, data, 0644); err != nil {
+	if err := os.WriteFile(config.CounterFile, data, 0644); err != nil {
 		fmt.Println("Error writing file:", err)
 	}
 }

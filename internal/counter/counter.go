@@ -2,6 +2,7 @@ package counter
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/had-nu/NameSniper/internal/config"
 )

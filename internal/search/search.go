@@ -44,7 +44,7 @@ func SearchGoogle(query string) []SearchResult {
 
 	if resp.StatusCode != http.StatusOK {
 		fmt.Printf("API error: %s\n", resp.Status)
-		body, _ := ioutil.ReadAll(resp.Body)
+		body, _ := io.ReadAll(resp.Body)
 		fmt.Println("Raw response:", string(body))
 		return nil
 	}
