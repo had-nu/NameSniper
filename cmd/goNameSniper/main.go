@@ -4,7 +4,6 @@ import (
     "fmt"
     "os"
 
-    "github.com/common-nighthawk/go-figure"
     "github.com/had-nu/NameSniper/internal/ui"
     "github.com/had-nu/NameSniper/internal/config"
     "github.com/had-nu/NameSniper/internal/counter"
