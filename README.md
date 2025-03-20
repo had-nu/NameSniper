@@ -1,13 +1,13 @@
 # NameSniper - OSINT Reconnaissance Tool
 
-[![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)](https://golang.org/)
+![](docs/img/banner_ns.png)
+
+[![Go](https://img.shields.io/badge/Go-1.24+-00ADD8.svg?style=flat-square&logo=go)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0)
 
 <a href="https://www.buymeacoffee.com/hadnu">
   <img src="https://img.buymeacoffee.com/button-api/?text=buy me a coffee&emoji=☕&slug=hadnu&button_colour=BD5FFF&font_colour=ffffff&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00" />
 </a>
-
-![](docs/img/banner_ns.png)
 
 **NameSniper** is a lightweight, command-line OSINT (Open-Source Intelligence) tool written in Go, designed for the reconnaissance phase of ethical hacking and security research. This is a tool that uses the Google Search API to look up information about people's names.
 
