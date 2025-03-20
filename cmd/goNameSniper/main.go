@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-    // Display stylized title using our custom banner package
+    // Display brand banner
     ui.PrintBanner()
 
     // Load environment variables
@@ -54,16 +54,24 @@ func main() {
     }
 
     // Perform Google search
-    results := search.SearchGoogle(query)
-    if len(results) > 0 {
-        fmt.Println("Results found:")
-        for i, result := range results {
-            fmt.Printf("%d. %s\n   URL: %s\n   Snippet: %s\n", i+1, result.Title, result.Link, result.Snippet)
+    categorisedResults := search.SearchGoogle(query)
+    foundResults := false
+    for category, results := range categorisedResults {
+        if len(results) > 0 {
+            foundResults = true
+            fmt.Printf("\n%s Results:\n", category)
+            for i, result := range results {
+                fmt.Printf("%d. %s\n   URL: %s\n   Snippet: %s\n", i+1, result.Title, result.Link, result.Snippet)
+            }
         }
-    } else {
-        fmt.Println("No results found.")
     }
 
-    // Update query counter
-    counter.UpdateCounter()
+    if !foundResults {
+        fmt.Println("No results found across all categories.")
+    }
+
+    // Update query counter (5 queries used)
+    for i := 0; i < 5; i++ {
+        counter.UpdateCounter()
+    }
 }
