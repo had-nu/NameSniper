@@ -1,4 +1,4 @@
-# NameSniper - OSINT Reconnaissance Tool
+# NameSniper - OSINT Search Tool
 
 ![](docs/img/banner_ns.png)
 

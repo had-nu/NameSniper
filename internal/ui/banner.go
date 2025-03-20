@@ -9,7 +9,7 @@ func PrintBanner() {
     /::|  |      /::\  \    | Welcome to NameSniper
    /:|:|  |     /:/\ \  \   | Version 1.0
   /:/|:|  |__  _\:\~\ \  \ 
- /:/ |:| /\__\/\ \:\ \ \__\ | Intelligence Search Tool
+ /:/ |:| /\__\/\ \:\ \ \__\ | OSINT Search Tool
  \/__|:|/:/  /\:\ \:\ \/__/ | Developed by hadnu
      |:/:/  /  \:\ \:\__\   
      |::/  /    \:\/:/  /   | Let's hunt!
