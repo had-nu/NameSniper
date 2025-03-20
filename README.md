@@ -87,7 +87,7 @@ export	GOOGLE_API_KEY=your_key
 ### Build and Run
 ```bash
 go build -o bin/goNameSniper ./cmd/goNameSniper
-./bin/goNameSniper "FirstName LastName"
+./bin/goNameSniper
 ```
 
 ## Planned Enhancements
