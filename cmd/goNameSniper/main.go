@@ -4,7 +4,7 @@ import (
     "fmt"
     "os"
 
-    "github.com/had-nu/NameSniper/internal/ui"
+    // "github.com/had-nu/NameSniper/internal/ui"
     "github.com/had-nu/NameSniper/internal/config"
     "github.com/had-nu/NameSniper/internal/counter"
     "github.com/had-nu/NameSniper/internal/search"
@@ -12,7 +12,7 @@ import (
 
 func main() {
     // Display stylized title using our custom banner package
-    ui.PrintBanner()
+    // ui.PrintBanner()
 
     // Load environment variables
     if err := config.LoadEnv(); err != nil {
