@@ -6,17 +6,17 @@ func PrintBanner() {
 	banner := `
       ___          ___     
      /\__\        /\  \    
-    /::|  |      /::\  \    | Welcome to NameSniper
-   /:|:|  |     /:/\ \  \   | Version 1.0
+    /::|  |      /::\  \        | Welcome to NameSniper
+   /:|:|  |     /:/\ \  \       | Version 1.0
   /:/|:|  |__  _\:\~\ \  \ 
- /:/ |:| /\__\/\ \:\ \ \__\ | OSINT Search Tool
- \/__|:|/:/  /\:\ \:\ \/__/ | Developed by hadnu
+ /:/ |:| /\__\/\ \:\ \ \__\     | OSINT Search Tool
+ \/__|:|/:/  /\:\ \:\ \/__/     | Developed by hadnu
      |:/:/  /  \:\ \:\__\   
-     |::/  /    \:\/:/  /   | Let's hunt!
+     |::/  /    \:\/:/  /       | Let's hunt!
      /:/  /      \::/  /   
      \/__/        \/__/    
 
-    -- using Go 1.24.0                                      
+     --using Go 1.24.0                                      
 `
 	fmt.Println(banner)
 }

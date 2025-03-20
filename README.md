@@ -40,14 +40,18 @@ NameSniper/
 ├── cmd/                    # Command-line entry points
 │   └── goNameSniper/       # Main application directory
 │       └── main.go         # Entry point of the NameSniper CLI tool
+├── doc/                    # Compiled binaries
+│   └── feats.text          # Log of new features
 ├── internal/               # Private application code
 │   ├── config/             # Configuration handling
 │   │   └── config.go       # Loads environment variables from .env
 │   ├── search/             # Search-related business logic
 │   │   └── search.go       # Handles Google API queries and result parsing
-│   └── counter/            # Query limit management and persistence
-│       ├── counter.go      # Manages daily query limits
-│       └── persist.go      # Persists query counter to/from consultas.json
+│   ├── counter/            # Query limit management and persistence
+│   |   ├── counter.go      # Manages daily query limits
+│   |   └── persist.go      # Persists query counter to/from consultas.json
+|   └── ui/                 # Cosmetic adjustments
+|       └── banner.go       # Program's Brand
 ├── .env                    # Environment configuration file (not tracked)
 ├── querylog.json           # Query history file (not tracked)
 ├── go.mod                  # Go module definition
