@@ -22,39 +22,75 @@ type GoogleSearchResponse struct {
 	Items []SearchResult `json:"items"`
 }
 
-// BuildQuery constructs a URL-safe query from name and optional surname
-func BuildQuery(firstName, surname string) string {
-	if surname == "" {
-		return url.QueryEscape(firstName)
-	}
-	return url.QueryEscape(fmt.Sprintf("%s %s", firstName, surname))
+// BuildQuery constructs a map of categorised, URL-safe queries
+func BuildQuery(firstName, surname string) map[string]string {
+    baseQuery := firstName
+    if surname != "" {
+        baseQuery += " " + surname
+    }
+    exactQuery := fmt.Sprintf(`"%s"`, baseQuery)
+
+    // Define the categorised dorking queries
+    queries := map[string]string{
+        "Name Search": url.QueryEscape(exactQuery),
+        "Social Media":     url.QueryEscape(fmt.Sprintf(`%s site:linkedin.com OR site:facebook.com OR site:instagram.com OR site:twitter.com`, exactQuery)),
+        "Documents":        url.QueryEscape(fmt.Sprintf(`%s filetype:pdf OR filetype:doc OR filetype:xlsx`, exactQuery)),
+        "Professional Info": url.QueryEscape(fmt.Sprintf(`%s intitle:curriculo OR intitle:CV`, exactQuery)),
+        "Personal Info":    url.QueryEscape(fmt.Sprintf(`%s intext:address OR intext:contact OR intext:email OR intext:username`, exactQuery)),
+    }
+
+    return queries
 }
 
-// SearchGoogle performs a Google API search with the given query
-func SearchGoogle(query string) []SearchResult {
-	url := fmt.Sprintf("%s?key=%s&cx=%s&q=%s", config.GoogleURL, config.GoogleAPIKey, config.GoogleCX, query)
-	fmt.Println("Request URL:", url)
+// SearchGoogle performs a Google API search for each query and groups results by category
+func SearchGoogle(queries map[string]string) map[string][]SearchResult {
+    client := &http.Client{Timeout: config.APITimeout}
+    categorisedResults := make(map[string][]SearchResult)
 
-	client := &http.Client{Timeout: config.APITimeout}
-	resp, err := client.Get(url)
-	if err != nil {
-		fmt.Println("Request error:", err)
-		return nil
-	}
-	defer resp.Body.Close()
+    for category, query := range queries {
+        // Map to deduplicate results within this category
+        resultMap := make(map[string]SearchResult)
 
-	if resp.StatusCode != http.StatusOK {
-		fmt.Printf("API error: %s\n", resp.Status)
-		body, _ := io.ReadAll(resp.Body)
-		fmt.Println("Raw response:", string(body))
-		return nil
-	}
+        url := fmt.Sprintf("%s?key=%s&cx=%s&q=%s", config.GoogleURL, config.GoogleAPIKey, config.GoogleCX, query)
+        fmt.Println("Request URL for", category, ":", url)
 
-	var response GoogleSearchResponse
-	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
-		fmt.Println("Response decoding error:", err)
-		return nil
-	}
+        resp, err := client.Get(url)
+        if err != nil {
+            fmt.Println("Request error for", category, ":", err)
+            continue
+        }
+        defer resp.Body.Close()
 
-	return response.Items
+        if resp.StatusCode != http.StatusOK {
+            fmt.Printf("API error for %s: %s\n", category, resp.Status)
+            body, _ := io.ReadAll(resp.Body)
+            fmt.Println("Raw response:", string(body))
+            continue
+        }
+
+        var response GoogleSearchResponse
+        if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
+            fmt.Println("Response decoding error for", category, ":", err)
+            continue
+        }
+
+        // Add results to the map (deduplicate by URL)
+        for _, item := range response.Items {
+            resultMap[item.Link] = SearchResult{
+                Title:   item.Title,
+                Link:    item.Link,
+                Snippet: item.Snippet,
+            }
+        }
+
+        // Convert map to slice
+        var results []SearchResult
+        for _, result := range resultMap {
+            results = append(results, result)
+        }
+
+        categorisedResults[category] = results
+    }
+
+    return categorisedResults
 }
