@@ -21,4 +21,5 @@ func PrintBanner() {
                                       -- Go 1.24
 `
 	fmt.Println(banner)
+	
 }
