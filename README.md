@@ -17,6 +17,8 @@ NameSniper is built for educational, ethical, and legal use only. Ethical hackin
 
 This MVP stems from my cybersecurity journey, aiming to support the OSINT community and inspire learners while promoting reconnaissance best practices. It’s open for collaboration, but use it responsibly in authorised settings only. My intent is to empower security pros and students, not enable misuse.
 
+See the Code of Conduct file.
+
 ---
 
 ## MVP Limitations
