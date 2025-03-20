@@ -3,11 +3,10 @@ package main
 import (
     "fmt"
     "os"
-
-    "github.com/had-nu/NameSniper/internal/ui"
     "github.com/had-nu/NameSniper/internal/config"
     "github.com/had-nu/NameSniper/internal/counter"
     "github.com/had-nu/NameSniper/internal/search"
+    "github.com/had-nu/NameSniper/internal/ui"
 )
 
 func main() {
