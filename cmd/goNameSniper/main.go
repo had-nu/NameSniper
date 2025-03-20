@@ -5,16 +5,15 @@ import (
     "os"
 
     "github.com/common-nighthawk/go-figure"
+    "github.com/had-nu/NameSniper/internal/ui"
     "github.com/had-nu/NameSniper/internal/config"
     "github.com/had-nu/NameSniper/internal/counter"
     "github.com/had-nu/NameSniper/internal/search"
 )
 
 func main() {
-    // Display stylized title
-    banner := figure.NewFigure("NameSniper", "slant", true)
-    banner.Print()
-    fmt.Println("\nVersion 1.0 - Powered by hadnu\n")
+    // Display stylized title using our custom banner package
+    ui.PrintBanner()
 
     // Load environment variables
     if err := config.LoadEnv(); err != nil {
